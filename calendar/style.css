@@ -1,0 +1,50 @@
+table.calendar, .calendar caption, .calendar a {
+	border-collapse: separate;
+	text-decoration: none;
+	text-align: center;
+	background: #d4dde6;
+	color: #333;
+}
+
+.calendar caption {
+	padding: 0.6em 0;
+}
+
+.calendar a[rel='prev'] {
+	float: left;
+	margin-left: 0.618em;
+}
+
+.calendar a[rel='next'] {
+	float: right;
+	margin-right: 0.618em;
+}
+
+.calendar th {
+	font-size: 0.8em;
+	line-height: 1.6em;
+	background: #d4dde6;
+	border-bottom: 1px solid #a9bacb;
+}
+
+
+.calendar td {
+	border-top: 1px solid #e0e0e1;
+	border-left: 1px solid #dfdfe0;
+	border-right: 1px solid #9f9fa1;
+	border-bottom: 1px solid #acacad;
+	padding: 0.8em;
+	background: #c0c8d2;
+	font-weight: bold;
+	text-shadow: 1px 1px 1px white;
+	cursor: pointer;
+}
+.calendar td:hover {
+	background: #6d8ab7;
+	color: white;
+}
+.calendar .outdate {
+	background: #d4dde6;
+	color: #c0c8d2;
+	cursor:  no-drop;
+}
