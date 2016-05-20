@@ -1,0 +1,126 @@
+#book{
+	position: relative;
+	left: 20%;
+	top:20%;
+	/*观看的距离*/
+	-webkit-perspective: 1000;
+	-moz-perspective:1000;
+}
+#container{
+	/*启用3d观看*/
+	-webkit-transform-style: preserve-3d;
+	-moz-transform-style:preserve-3d;
+	-webkit-animation: round 3s linear 0 infinite normal;
+	   -moz-animation: round 3s linear 0 infinite normal;
+	    -ms-animation: round 3s linear 0 infinite normal;
+	     -o-animation: round 3s linear 0 infinite normal;
+	        animation: round 3s linear 0 infinite normal;
+}
+.page{
+	background: red;
+	width: 200px;
+	height: 200px;
+	border: 1px solid green;
+	position: absolute;
+	left: 0;
+	top: 0;
+	display: -webkit-box;
+	display: -moz-box;
+	-moz-box-align: center;
+	-moz-box-pack: center;
+	-webkit-box-align: center;
+	-webkit-box-pack: center;
+	font-size: 10em;
+}
+
+
+/*六张内容定位*/
+.page:nth-of-type(1){
+	-webkit-transform: rotateX(60deg) translateZ(180px);
+	-moz-transform: rotateX(60deg) translateZ(180px);
+}
+.page:nth-of-type(2){
+	-webkit-transform: rotateX(120deg) translateZ(180px);
+	-moz-transform: rotateX(120deg) translateZ(180px);
+}
+.page:nth-of-type(3){
+	-webkit-transform: rotateX(180deg) translateZ(180px);
+	-moz-transform: rotateX(180deg) translateZ(180px);
+}
+.page:nth-of-type(4){
+	-webkit-transform: rotateX(240deg) translateZ(180px);
+	-moz-transform: rotateX(240deg) translateZ(180px);
+}
+.page:nth-of-type(5){
+	-webkit-transform: rotateX(300deg) translateZ(180px);
+	-moz-transform: rotateX(300deg) translateZ(180px);
+}
+.page:nth-of-type(6){
+	-webkit-transform: rotateX(360deg) translateZ(180px);
+	-moz-transform: rotateX(360deg) translateZ(180px);
+}
+
+
+/*旋转动画*/
+
+@-webkit-keyframes round {
+	0% { -webkit-transform: rotateX(0deg);
+	   -moz-transform: rotateX(0deg);
+	    -ms-transform: rotateX(0deg);
+	     -o-transform: rotateX(0deg);
+	        transform: rotateX(0deg); }
+	100% { -webkit-transform: rotateX(360deg);
+	   -moz-transform: rotateX(360deg);
+	    -ms-transform: rotateX(360deg);
+	     -o-transform: rotateX(360deg);
+	        transform: rotateX(360deg); }
+}
+@-moz-keyframes round {
+	0% { -webkit-transform: rotateX(0deg);
+	   -moz-transform: rotateX(0deg);
+	    -ms-transform: rotateX(0deg);
+	     -o-transform: rotateX(0deg);
+	        transform: rotateX(0deg); }
+	100% { -webkit-transform: rotateX(360deg);
+	   -moz-transform: rotateX(360deg);
+	    -ms-transform: rotateX(360deg);
+	     -o-transform: rotateX(360deg);
+	        transform: rotateX(360deg); }
+}
+@-ms-keyframes round {
+	0% { -webkit-transform: rotateX(0deg);
+	   -moz-transform: rotateX(0deg);
+	    -ms-transform: rotateX(0deg);
+	     -o-transform: rotateX(0deg);
+	        transform: rotateX(0deg); }
+	100% { -webkit-transform: rotateX(360deg);
+	   -moz-transform: rotateX(360deg);
+	    -ms-transform: rotateX(360deg);
+	     -o-transform: rotateX(360deg);
+	        transform: rotateX(360deg); }
+}
+@-o-keyframes round {
+	0% { -webkit-transform: rotateX(0deg);
+	   -moz-transform: rotateX(0deg);
+	    -ms-transform: rotateX(0deg);
+	     -o-transform: rotateX(0deg);
+	        transform: rotateX(0deg); }
+	100% { -webkit-transform: rotateX(360deg);
+	   -moz-transform: rotateX(360deg);
+	    -ms-transform: rotateX(360deg);
+	     -o-transform: rotateX(360deg);
+	        transform: rotateX(360deg); }
+}
+@keyframes round {
+	0% { -webkit-transform: rotateX(0deg);
+	   -moz-transform: rotateX(0deg);
+	    -ms-transform: rotateX(0deg);
+	     -o-transform: rotateX(0deg);
+	        transform: rotateX(0deg); }
+	100% { -webkit-transform: rotateX(360deg);
+	   -moz-transform: rotateX(360deg);
+	    -ms-transform: rotateX(360deg);
+	     -o-transform: rotateX(360deg);
+	        transform: rotateX(360deg); }
+}
+

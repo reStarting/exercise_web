@@ -1,0 +1,118 @@
+#book{
+	position: relative;
+	left:20%;
+	top:20%;
+	-webkit-perspective: 1500;
+}
+#container{
+	-webkit-transform-style: preserve-3d;
+}
+.page{
+	width:200px;
+	height: 200px;
+	background: rgba(0, 0, 0, 0.8);
+	border: 1px solid red;
+	position: absolute;
+}
+
+.page:nth-of-type(6){
+	-webkit-animation: into 2s ease-in-out 0 infinite normal;
+	   -moz-animation: into 2s ease-in-out 0 infinite normal;
+	    -ms-animation: into 2s ease-in-out 0 infinite normal;
+	     -o-animation: into 2s ease-in-out 0 infinite normal;
+	        animation: into 2s ease-in-out 0 infinite normal;
+}
+.page:nth-of-type(5){
+	-webkit-animation: into 2s ease-in-out 0.5s infinite normal;
+	   -moz-animation: into 2s ease-in-out 0.5s infinite normal;
+	    -ms-animation: into 2s ease-in-out 0.5s infinite normal;
+	     -o-animation: into 2s ease-in-out 0.5s infinite normal;
+	        animation: into 2s ease-in-out 0.5s infinite normal;
+}
+.page:nth-of-type(4){
+	-webkit-animation: into 2s ease-in-out 1s infinite normal;
+	   -moz-animation: into 2s ease-in-out 1s infinite normal;
+	    -ms-animation: into 2s ease-in-out 1s infinite normal;
+	     -o-animation: into 2s ease-in-out 1s infinite normal;
+	        animation: into 2s ease-in-out 1s infinite normal;
+}
+.page:nth-of-type(3){
+	-webkit-animation: into 2s ease-in-out 1.5s infinite normal;
+	   -moz-animation: into 2s ease-in-out 1.5s infinite normal;
+	    -ms-animation: into 2s ease-in-out 1.5s infinite normal;
+	     -o-animation: into 2s ease-in-out 1.5s infinite normal;
+	        animation: into 2s ease-in-out 1.5s infinite normal;
+}
+.page:nth-of-type(2){
+	-webkit-animation: into 2s ease-in-out 2s infinite normal;
+	   -moz-animation: into 2s ease-in-out 2s infinite normal;
+	    -ms-animation: into 2s ease-in-out 2s infinite normal;
+	     -o-animation: into 2s ease-in-out 2s infinite normal;
+	        animation: into 2s ease-in-out 2s infinite normal;
+}
+.page:nth-of-type(1){
+
+}
+
+
+
+@-webkit-keyframes into {
+	0% { -webkit-transform: translateZ(0);
+	   -moz-transform: translateZ(0);
+	    -ms-transform: translateZ(0);
+	     -o-transform: translateZ(0);
+	        transform: translateZ(0); }
+	100% { -webkit-transform: translateZ(800px);
+	   -moz-transform: translateZ(800px);
+	    -ms-transform: translateZ(800px);
+	     -o-transform: translateZ(800px);
+	        transform: translateZ(800px); }
+}
+@-moz-keyframes into {
+	0% { -webkit-transform: translateZ(0);
+	   -moz-transform: translateZ(0);
+	    -ms-transform: translateZ(0);
+	     -o-transform: translateZ(0);
+	        transform: translateZ(0); }
+	100% { -webkit-transform: translateZ(800px);
+	   -moz-transform: translateZ(800px);
+	    -ms-transform: translateZ(800px);
+	     -o-transform: translateZ(800px);
+	        transform: translateZ(800px); }
+}
+@-ms-keyframes into {
+	0% { -webkit-transform: translateZ(0);
+	   -moz-transform: translateZ(0);
+	    -ms-transform: translateZ(0);
+	     -o-transform: translateZ(0);
+	        transform: translateZ(0); }
+	100% { -webkit-transform: translateZ(800px);
+	   -moz-transform: translateZ(800px);
+	    -ms-transform: translateZ(800px);
+	     -o-transform: translateZ(800px);
+	        transform: translateZ(800px); }
+}
+@-o-keyframes into {
+	0% { -webkit-transform: translateZ(0);
+	   -moz-transform: translateZ(0);
+	    -ms-transform: translateZ(0);
+	     -o-transform: translateZ(0);
+	        transform: translateZ(0); }
+	100% { -webkit-transform: translateZ(800px);
+	   -moz-transform: translateZ(800px);
+	    -ms-transform: translateZ(800px);
+	     -o-transform: translateZ(800px);
+	        transform: translateZ(800px); }
+}
+@keyframes into {
+	0% { -webkit-transform: translateZ(0);
+	   -moz-transform: translateZ(0);
+	    -ms-transform: translateZ(0);
+	     -o-transform: translateZ(0);
+	        transform: translateZ(0); }
+	100% { -webkit-transform: translateZ(800px);
+	   -moz-transform: translateZ(800px);
+	    -ms-transform: translateZ(800px);
+	     -o-transform: translateZ(800px);
+	        transform: translateZ(800px); }
+}
