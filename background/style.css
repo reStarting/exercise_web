@@ -1,0 +1,10 @@
+html, body {
+    height: 100%;
+}
+
+body {
+    background-color: gray;
+    background-image: radial-gradient(circle at center, black, green);
+    background-size: 50px 50px;
+    background-position: 50px 50px;
+}

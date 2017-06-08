@@ -1,0 +1,46 @@
+.perspective{
+	perspective: 1000px;
+	margin:0 auto;
+	width: 300px;
+	margin-top: 200px;
+}
+.container{
+	position: relative;
+	transform-style: preserve-3d;
+	transform: rotateX(30deg) rotateY(-30deg);
+}
+.card{
+	position: absolute;
+	left:0;
+	top:0;
+	background: rgba(100, 100, 0, 0.4);
+	border:1px solid red;
+	width: 300px;
+	height: 100px;
+	transform-origin: center center;
+}
+.up{
+	transform: rotateX(90deg) translateZ(50px);
+}
+.front{
+	transform: rotateX(0deg) translateZ(50px);
+}
+.down{
+	transform: rotateX(-90deg) translateZ(50px);
+}
+.back{
+	transform: rotateX(180deg) translateZ(50px);
+}
+.slice{
+	width: 1%;
+	float: left;
+	height:100%;
+	background: yellow;
+	animation: smaller 0.3s ease-in-out 0s 1 alternate;
+}
+
+@keyframes smaller {
+	0% { transform:translateY(-100px); }
+	100% {transform:translateY(0); }
+}
+
