@@ -1,0 +1,24 @@
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>剪纸效果-圆环</title>
+	</head>
+	<body>
+		<canvas id="canvas"></canvas>
+		<script type="text/javascript">
+			var canvas = document.getElementById("canvas");
+			var context = canvas.getContext("2d");
+			context.beginPath();
+			context.arc(150, 75, 60, 0, Math.PI*2, true);
+			context.arc(150, 75, 40, 0, Math.PI*2, false);
+			context.fillStyle = "rgba(100, 10, 255, .7)";
+			context.shadowColor = "rgba(0,0,0,.8)";
+			context.shadowOffsetX=10;
+			context.shadowOffsetY=10;
+			context.shadowBlur=12;
+			context.fill();
+		</script>
+	</body>
+</html>
+	

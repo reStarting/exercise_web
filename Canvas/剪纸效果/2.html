@@ -1,0 +1,36 @@
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>剪纸效果</title>
+	</head>
+	<body>
+		<canvas id="canvas" width="500" height="500"></canvas>
+		<script type="text/javascript">
+			var canvas = document.getElementById("canvas");
+			var ctx = canvas.getContext("2d");
+			ctx.beginPath();
+			ctx.fillStyle = "rgba(50, 50, 50, .7)";
+			ctx.rect(0, 0, canvas.width, canvas.height);
+			ctx.arc(250, 250, 50, 0, Math.PI*2, true);
+
+			ctx.moveTo(50, 50);
+			ctx.lineTo(50, 100);
+			ctx.lineTo(150, 100);
+			ctx.lineTo(50, 50);
+
+			ctx.moveTo(200, 50);
+			ctx.lineTo(200, 100);
+			ctx.lineTo(300, 100);
+			ctx.lineTo(300, 50);
+			ctx.lineTo(200, 50);
+
+			ctx.shadowColor = "rgba(0, 0, 0, .8)";
+			ctx.shadowOffsetX = 10;
+			ctx.shadowOffsetY = 10;
+			ctx.shadowBlur = 10;
+			ctx.fill();
+		</script>
+	</body>
+</html>
+	

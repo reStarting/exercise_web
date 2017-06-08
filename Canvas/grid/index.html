@@ -1,0 +1,34 @@
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Canvas-网格</title>
+	</head>
+	<body>
+		<canvas id="canvas"></canvas>
+		<script type="text/javascript">
+			var canvas = document.getElementById("canvas");
+			var context = canvas.getContext("2d");
+			function drawGrid(ctx, stepx, stepy)
+			{
+				ctx.lineWidth = 0.5;
+				for(var i=stepx+0.5; i<ctx.canvas.width; i+=stepx)
+				{
+					ctx.beginPath();
+					ctx.moveTo(i, 0)
+					ctx.lineTo(i, ctx.canvas.height);
+					ctx.stroke();
+				}
+				for(var i=stepy+0.5; i<ctx.canvas.height; i+=stepy)
+				{
+					ctx.beginPath();
+					ctx.moveTo(0, i);
+					ctx.lineTo(ctx.canvas.width, i);
+					ctx.stroke();
+				}
+			}
+		drawGrid(context, 10, 10);
+		</script>
+	</body>
+</html>
+	

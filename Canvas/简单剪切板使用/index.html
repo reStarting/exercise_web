@@ -1,0 +1,55 @@
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Canvas-剪切板</title>
+	</head>
+	<body style="text-align: center">
+		<canvas id="canvas" width="800" height="600"></canvas>
+		<script type="text/javascript">
+			var context = document.getElementById("canvas").getContext("2d");
+			function drawCircle (ctx) 
+			{
+				ctx.save();
+				ctx.beginPath();
+				ctx.arc(ctx.canvas.width/2, ctx.canvas.height/2, 300, 0, Math.PI*2);
+				ctx.fill();
+				ctx.restore();
+			}
+			function drawEraser(ctx, loc)
+			{
+				ctx.save();
+				ctx.beginPath();
+				ctx.rect(loc.x-20, loc.y-20, 40, 40);
+				ctx.clip();
+				ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height)
+				ctx.restore();
+			}
+			function windowToCanvas (ctx, x, y) 
+			{
+				return {
+					x:x-parseInt(ctx.canvas.offsetLeft),
+					y:y-parseInt(ctx.canvas.offsetTop)
+				}
+			}
+			drawCircle(context);
+			var drawing = false;
+			context.canvas.onmousemove = function(e)
+			{
+				if(drawing)
+				{
+					drawEraser(context, windowToCanvas(context, e.pageX, e.pageY));
+				}
+			}
+			context.canvas.onmousedown = function(e)
+			{
+				drawing = true;
+			}
+			context.canvas.onmouseup = function(e)
+			{
+				drawing = false;
+			}
+		</script>
+	</body>
+</html>
+	

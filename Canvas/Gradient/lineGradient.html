@@ -1,0 +1,23 @@
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Canvas-Gradient</title>
+	</head>
+	<body>
+		<canvas id="canvas"></canvas>
+		<script type="text/javascript">
+			var canvas = document.getElementById("canvas");
+			var context = canvas.getContext("2d");
+			var gradient = context.createLinearGradient(0, 0, canvas.width, 0);
+			gradient.addColorStop(0, "blue");
+			gradient.addColorStop(.25, "white");
+			gradient.addColorStop(.5, "purple");
+			gradient.addColorStop(.75, "red");
+			gradient.addColorStop(1, "yellow");
+			context.fillStyle = gradient;
+			context.fillRect(0, 0, canvas.width, canvas.height);
+		</script>
+	</body>
+</html>
+	

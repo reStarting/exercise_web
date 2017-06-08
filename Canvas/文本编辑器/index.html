@@ -1,0 +1,47 @@
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Canvas-文本编辑器</title>
+		<link rel="stylesheet" type="text/css" href="css/style.css">
+	</head>
+	<body>
+		<canvas id="canvas" width="800" height="600"></canvas>
+		<script type="text/javascript" src="js/TextCursor.js"></script>
+		<script type="text/javascript" src="js/CanvasTools.js"></script>
+		<script type="text/javascript">
+			var context = document.getElementById("canvas").getContext("2d");
+			var textCursor = new TextCursor();
+			var drawingSurfaceImageData;
+			var blinkingInterval;
+			function moveCursor(loc)
+			{
+				textCursor.erase(context, drawingSurfaceImageData)
+				textCursor.draw(context, loc.x, loc.y);
+
+				if(!blinkingInterval) blinkCursor();
+			}
+			function saveDrawingSurface()
+			{
+				drawingSurfaceImageData = context.getImageData(0, 0, context.canvas.width, context.canvas.height);
+			}
+			function blinkCursor()
+			{
+				blinkingInterval = setInterval(function(e){
+					textCursor.erase(context, drawingSurfaceImageData);
+					setTimeout(function(e){
+						textCursor.draw(context, textCursor.left, textCursor.top+textCursor.getHeight(context));
+					},500);
+				}, 1000);
+			}
+			context.canvas.onmousedown = function(e)
+			{
+				var loc = windowToCanvas(context, e.pageX, e.pageY);
+				moveCursor(loc);
+			}
+			drawGrid(context, 10, 10, "rgba(100, 0, 255, .8)");
+			saveDrawingSurface();
+		</script>
+	</body>
+</html>
+	

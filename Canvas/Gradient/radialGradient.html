@@ -1,0 +1,23 @@
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Canvas-radialGradient</title>
+	</head>
+	<body>
+		<canvas id="canvas"></canvas>		
+		<script type="text/javascript">
+			var canvas = document.getElementById("canvas");
+			var context = canvas.getContext("2d");
+			var gradient = context.createRadialGradient(0, canvas.height/2, 0, canvas.width, canvas.height/2, 50);
+			gradient.addColorStop(0, "blue");
+			gradient.addColorStop(.25, "yellow");
+			gradient.addColorStop(.5, "red");
+			gradient.addColorStop(.75, "green");
+			gradient.addColorStop(1, "blue");
+			context.fillStyle = gradient;
+			context.fillRect(0, 0, canvas.width, canvas.height);
+		</script>
+	</body>
+</html>
+	

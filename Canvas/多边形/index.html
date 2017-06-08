@@ -1,0 +1,57 @@
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Canvas-多边形</title>
+	</head>
+	<body>
+		<canvas id="canvas" width="800" height="600"></canvas>
+		<script type="text/javascript">
+			var canvas = document.getElementById("canvas");
+			var context = canvas.getContext("2d");
+
+			var Point = function(x, y)
+			{
+				this.x = x;
+				this.y = y;
+			}
+			function getPoints(center, radius, sides, startAngle)
+			{
+				var points = [];
+				var angle = startAngle || 0;
+				for(var i=0; i<sides; i++)
+				{
+					points.push(new Point(center.x+radius*Math.cos(angle), center.y+radius*Math.sin(angle)));
+					angle += Math.PI*2/sides;
+				}
+				return points;
+			}
+
+			function draw(points)
+			{
+				points[points.length] = points[0];
+				for(var i=0; i<points.length-1; i++)
+				{
+					console.log(points[i]);
+					context.beginPath();
+					context.moveTo(points[i].x, points[i].y);
+					context.lineTo(points[i+1].x, points[i+1].y);
+					context.stroke();
+				}
+			}
+
+			var ps = getPoints(new Point(canvas.width/2, canvas.height/2), 200, 3, 0);
+			draw(ps);
+			context.beginPath();
+			context.arc(100,100, 10, 0, Math.PI*2);
+			context.fill();
+			context.translate(canvas.width, 0);
+			context.scale(-1, 1);
+			draw(ps);
+			context.beginPath();
+			context.arc(100, 100, 10, 0, Math.PI*2);
+			context.fill();
+		</script>
+	</body>
+</html>
+	

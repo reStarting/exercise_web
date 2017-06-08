@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Canvas-浮雕效果(使用工作流)</title>
+	</head>
+	<body>
+		<canvas id="canvas" width="1000" height="600"></canvas>
+		<button onclick="change()">浮雕效果</button>
+		<script type="text/javascript">
+			var canvas = document.getElementById("canvas");
+			var context = canvas.getContext("2d");
+			var img = new Image();
+			img.src = "images/img.jpg";
+			img.onload = function()
+			{
+				context.drawImage(img, 0, 0, canvas.width, canvas.height);
+			}
+			var worker = new Worker("worker/fudiao.js");
+			function change()
+			{
+				worker.postMessage(context.getImageData(0, 0, canvas.width, canvas.height));
+				worker.onmessage = function(event)
+				{
+					context.putImageData(event.data, 0, 0);
+				}
+			}
+		</script>
+	</body>
+</html>
+	

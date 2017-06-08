@@ -1,0 +1,60 @@
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Canvas-剪切板动画</title>
+	</head>
+	<body>
+		<canvas id="canvas" width="600" height="600"></canvas>
+		<script type="text/javascript">
+			var ctx = document.getElementById("canvas").getContext("2d");
+			function drawText (text, x, y) 
+			{
+				ctx.save();
+				ctx.font = "150px Comic-sans";
+				ctx.shadowColor = "rgba(10, 123, 200, .7)";
+				ctx.shadowOffsetX = 10;
+				ctx.shadowOffsetY = 10;
+				ctx.shadowBlur = 12;
+				ctx.fillStyle = "rgba(100, 140, 100, .9)"
+				ctx.fillText(text, x, y);	
+				ctx.restore();
+			}
+			function drawCircle(r)
+			{
+				ctx.beginPath();
+				ctx.arc(ctx.canvas.width/2, ctx.canvas.height/2, r, 0, Math.PI*2, false);
+				ctx.clip();
+			}
+			function fillCanvas(c)
+			{
+				ctx.save();
+				ctx.fillStyle = c;
+				ctx.fillRect(0, 0, ctx.canvas.width, ctx.canvas.height);
+				ctx.restore();
+			}
+
+			var radius = ctx.canvas.width/2;
+			var timer = setInterval(function(){
+				radius -= ctx.canvas.width/100;
+				fillCanvas("black");
+				if(radius>0)
+				{
+					ctx.save();
+					//将剪切板变成一个圆
+					drawCircle(radius);
+					fillCanvas("yellow");
+					drawText("Canvas", 60, 330);
+					ctx.restore();
+				}
+				else
+				{
+					clearInterval(timer);
+				}
+			}, 60);
+
+
+		</script>
+	</body>
+</html>
+	

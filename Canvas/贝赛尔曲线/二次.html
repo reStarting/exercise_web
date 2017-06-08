@@ -1,0 +1,28 @@
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Canvas-二次贝赛尔曲线</title>
+	</head>
+	<body>
+		<canvas id="canvas"></canvas>
+		<script type="text/javascript">
+			var canvas = document.getElementById("canvas");
+			var context = canvas.getContext("2d");
+			context.moveTo(10,10);
+			context.quadraticCurveTo(50, 120, 90, 10);
+			context.stroke();
+			context.beginPath();
+			context.arc(10, 10, 5, 0, Math.PI*2);
+			context.stroke();
+			context.beginPath();
+			context.arc(50, 120, 5, 0, Math.PI*2);
+			context.fill();
+			context.stroke();
+			context.beginPath();
+			context.arc(90, 10, 5, 0, Math.PI*2);
+			context.stroke();
+		</script>
+	</body>
+</html>
+	

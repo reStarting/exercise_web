@@ -1,4 +1,7 @@
 #container{
+	width: 480px;
+	height: 320px;
+	background: red;
 	-webkit-filter:blur(10px);
 	   -moz-filter:blur(10px);
 	     -o-filter:blur(10px);

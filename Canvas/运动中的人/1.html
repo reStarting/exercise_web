@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Title</title>
+	</head>
+	<body>
+		<div id="img" style="width:40px;height:76px;background:url(move.jpg);background-position:-35px -15px;"></div>
+		<br/>
+		<div id="img2" style="width:34px;height:75px;background:url(move.jpg);background-position:-22px -90px;"></div>
+		<script type="text/javascript">
+			
+			var img = document.getElementById("img");
+			var left = -35;
+			var startTime = 0;
+			function animate(time)
+			{
+				if(left < -260) left = -35;
+				left -= 47;
+				if(time - startTime > 100)
+				{
+					startTime = time;
+					img.style.backgroundPosition = left+"px -15px";
+				}
+				requestAnimationFrame(animate);
+			}
+			animate(0);
+
+			var img2 = document.getElementById("img2");
+			var left2 = -22;
+			var startTime2 = 0;
+			function animate2(time)
+			{
+				if(left2 < -260) left2 = -22;
+				left2 -= 37;
+				if(time - startTime2 > 200)
+				{
+					startTime2 = time;
+					img2.style.backgroundPosition = left2+"px -90px";
+				}
+				requestAnimationFrame(animate2);
+			}
+			animate2(0);
+
+		</script>
+	</body>
+</html>
+	

@@ -1,0 +1,28 @@
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Canvas-shadow</title>
+	</head>
+	<body>
+		<canvas id="canvas"></canvas>
+		<script type="text/javascript">
+			var canvas = document.getElementById("canvas");
+			var context = canvas.getContext("2d");
+
+			context.shadowColor = "rgba(0, 0, 0, 0.7)";
+			context.shadowOffsetX = 4;
+			context.shadowOffsetY = 4;
+			context.shadowBlur = 5;
+
+
+			context.fillStyle = "#f1f1f1";
+			context.beginPath();
+			context.fillRect(0, 0, 50, 50);
+			context.strokeStyle = "#f1f1f1";
+			context.lineWidth=2;
+			context.strokeRect(60, 0, 50, 50);
+		</script>
+	</body>
+</html>
+	

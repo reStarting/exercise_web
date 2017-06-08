@@ -1,0 +1,30 @@
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Canvas-三次贝赛尔曲线</title>
+	</head>
+	<body>
+		<canvas id="canvas"></canvas>
+		<script type="text/javascript">
+			var canvas = document.getElementById("canvas");
+			var context = canvas.getContext("2d");
+			context.moveTo(50, 50);
+			context.bezierCurveTo(150, 50, 50, 100, 150, 100);
+			context.stroke();
+			context.beginPath();
+			context.arc(50, 50, 5, 0, Math.PI*2);
+			context.fill();
+			context.beginPath();
+			context.arc(150, 50, 5, 0, Math.PI*2);
+			context.stroke();
+			context.beginPath();
+			context.arc(50, 100, 5, 0, Math.PI*2);
+			context.stroke();
+			context.beginPath();
+			context.arc(150, 100, 5, 0, Math.PI*2);
+			context.fill();
+		</script>
+	</body>
+</html>
+	

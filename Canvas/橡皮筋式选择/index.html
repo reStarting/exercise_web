@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Canvas-橡皮筋选择 imageData运用</title>
+	</head>
+	<body>
+		<canvas id="canvas" width="1000" height="600"></canvas>
+		<script type="text/javascript">
+			var canvas = document.getElementById("canvas");
+			var context = canvas.getContext("2d");
+			var image = new Image();
+			image.src = "images/img.jpg";
+
+			var imageDataCopy, drawing, imageData;
+			var dataRect = {};
+			var mouseDown = {};
+
+			image.onload = function()
+			{
+				context.drawImage(image, 0, 0, canvas.width, canvas.height);
+				imageDataCopy = context.createImageData(canvas.width, canvas.height);
+				imageData = context.getImageData(0, 0, canvas.width, canvas.height);
+				var data = imageData.data;
+				for(var i=0; i<data.length; i+=4)
+				{
+					var averge = (imageData.data[i] + imageData.data[i+1] + imageData.data[i+2])/3;
+					imageDataCopy.data[i] = averge;
+					imageDataCopy.data[i+1] = averge;
+					imageDataCopy.data[i+2] = averge;
+					imageDataCopy.data[i+3] = imageData.data[i+3];
+				}x
+			}
+
+			function windowToCanvas(x, y)
+			{
+				return {
+					x: x - canvas.offsetLeft,
+					y: y - canvas.offsetTop
+				}
+			}
+
+			function updateDataRect(x, y)
+			{
+				dataRect.left = Math.min(x, mouseDown.x);
+				dataRect.top = Math.min(y, mouseDown.y);
+				dataRect.width = Math.abs(x - mouseDown.x);
+				dataRect.height = Math.abs(y - mouseDown.y);
+			}
+			function drawDataRect()
+			{
+				context.strokeRect(dataRect.left, dataRect.top, dataRect.width, dataRect.height);
+				var scaleWidth = imageDataCopy.width/canvas.width;
+				var scaleHeight = imageDataCopy.height/canvas.height;
+				context.putImageData(imageDataCopy, 0, 0, dataRect.left, dataRect.top, dataRect.width*scaleWidth, dataRect.height*scaleHeight);
+			}
+
+			function startMove(x, y)
+			{
+				mouseDown.x = x;
+				mouseDown.y = y;
+				dataRect.left = x;
+				dataRect.top = y;
+			}
+
+			function restore()
+			{
+				context.putImageData(imageData, 0, 0);
+			}
+
+			canvas.onmousedown = function(e)
+			{
+				var loc = windowToCanvas(e.pageX, e.pageY);
+				startMove(loc.x, loc.y);
+				drawing = true;
+			}
+			canvas.onmousemove = function(e)
+			{
+				if(drawing)
+				{
+					var loc = windowToCanvas(e.pageX, e.pageY);
+					restore();
+					updateDataRect(loc.x, loc.y);
+					drawDataRect();
+				}
+			}
+			canvas.onmouseup = function(e)
+			{
+				context.putImageData(imageData, 0, 0);
+				context.drawImage(canvas, dataRect.left, dataRect.top, dataRect.width, dataRect.height, 0, 0, canvas.width, canvas.height);
+				drawing = false;
+			}
+
+		</script>
+	</body>
+</html>
+	
